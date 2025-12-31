@@ -2571,6 +2571,80 @@ Supervised learning algorithms like linear regression, logistic regression, deci
 Unsupervised learning algorithms like k-means clustering, hierarchical clustering, and principal component analysis
 Reinforcement learning algorithms like Q-learning and policy gradients
 Deep learning algorithms like convolutional neural networks, recurrent neural networks, and transformers
-I'm happy to answer more questions!
+
+Given your 28+ years of experience, including your current role at EY/BNY Mellon and your extensive work with Agentic AI, GenAI, and Cloud Architecture, here are 50 targeted interview questions and the correct answers for a Software Architect role.
+
+### **Part 1: Generative AI & LLMs (Architectural Focus)**
+
+1. **Q: What is the primary difference between RAG and Fine-tuning for an enterprise application?** **A:** RAG provides the model with external, real-time data via a retrieval mechanism without changing model weights, whereas Fine-tuning updates the model's weights on a specific dataset to learn style, vocabulary, or domain-specific patterns.
+2. **Q: How do you handle "Hallucinations" in a production GenAI system?** **A:** Implement RAG with grounded citations, use Chain-of-Thought (CoT) prompting, set temperature to 0, and integrate an evaluation layer like Ragas or TruLens to check faithfulness.
+3. **Q: Explain the concept of "Agentic Workflows" in GenAI.** **A:** It involves using LLMs as reasoning engines that can use tools (APIs, databases), self-correct, and break down complex tasks into iterative sub-steps rather than a single linear prompt.
+4. **Q: When would you use a Vector Database versus a Graph Database for GenAI?** **A:** Use Vector DBs (e.g., Pinecone, Milvus) for similarity-based semantic search; use Graph DBs (e.g., Neo4j) when the relationship between entities is critical for reasoning (GraphRAG).
+5. **Q: What is the significance of "Context Window" in LLM architecture?** **A:** It defines the maximum number of tokens the model can process in one go; exceeding it requires strategies like "Map-Reduce" or "Refine" for document processing.
+6. **Q: How do you optimize inference costs for LLMs?** **A:** Use model quantization (4-bit/8-bit), prompt caching, smaller specialized SLMs (like Phi-3) for simpler tasks, and request batching.
+7. **Q: What is "Temperature" in LLM decoding?** **A:** A hyperparameter that controls randomness: lower values (close to 0) make output deterministic, while higher values (up to 1) increase creativity/variety.
+8. **Q: Explain "Tokenization" and its impact on cost.** **A:** It is the process of breaking text into chunks (tokens); since most LLM APIs charge per token (input + output), efficient prompt engineering directly reduces cost.
+9. **Q: What are "System Prompts" (or Metaprompts)?** **A:** Instruction sets that define the AI's persona, constraints, and operational boundaries, which the user cannot easily override.
+10. **Q: How do you secure an LLM application against Prompt Injection?** **A:** Use LLM-based firewalls (Guardrails), sanitize user inputs, and implement strict output validation schemas (Pydantic).
+
+---
+
+### **Part 2: Python & Java (Microservices & Scalability)**
+
+11. **Q: In Python, what is the Global Interpreter Lock (GIL)?** **A:** A mutex that allows only one thread to execute Python bytecode at a time, preventing true multi-core parallel execution in CPU-bound tasks.
+12. **Q: How do you handle concurrency in Python for I/O-bound tasks?** **A:** Use `asyncio` (Asynchronous I/O) or `threading`.
+13. **Q: Explain the difference between `list` and `tuple` in Python.** **A:** Lists are mutable and slower for iteration; tuples are immutable, fixed-size, and more memory-efficient.
+14. **Q: What is a Python Decorator?** **A:** A function that takes another function and extends its behavior without explicitly modifying it.
+15. **Q: In Java, what is the difference between `Checked` and `Unchecked` exceptions?** **A:** Checked exceptions must be caught or declared at compile-time; Unchecked exceptions (Runtime) do not require explicit handling.
+16. **Q: What is "Inversion of Control" (IoC) in Spring Boot?** **A:** A design principle where the control of object creation and lifecycle is transferred from the programmer to the Spring container.
+17. **Q: Explain "JVM Garbage Collection" briefly.** **A:** The automated process of identifying and deleting unused objects in the heap memory to reclaim space.
+18. **Q: What is the "S" in SOLID principles?** **A:** Single Responsibility Principle: A class should have only one reason to change.
+19. **Q: What is the difference between `map` and `flatMap` in Java Streams?** **A:** `map` transforms each element into another value; `flatMap` transforms each element into a stream and flattens multiple streams into one.
+20. **Q: How does FastAPI achieve higher performance than Flask?** **A:** By using the Starlette framework and `uvicorn`, leveraging Python’s `async` capabilities and Pydantic for fast data validation.
+
+---
+
+### **Part 3: Cloud Architecture (AWS/Azure/GCP)**
+
+21. **Q: What is the "Twelve-Factor App" methodology?** **A:** A set of 12 best practices for building scalable, maintainable, and portable cloud-native applications.
+22. **Q: Explain the "Shared Responsibility Model" in Cloud.** **A:** The provider is responsible for "security OF the cloud" (hardware/global infra); the customer is responsible for "security IN the cloud" (data/OS/config).
+23. **Q: What is the difference between "Vertical" and "Horizontal" scaling?** **A:** Vertical (Scaling Up) adds more power (CPU/RAM) to an existing server; Horizontal (Scaling Out) adds more server instances.
+24. **Q: When would you use AWS Lambda (Serverless) over EC2?** **A:** Use Lambda for short-lived, event-driven tasks with variable traffic; use EC2 for long-running processes or custom OS requirements.
+25. **Q: What is a "Multi-region" vs. "Multi-AZ" deployment?** **A:** Multi-AZ provides high availability within one geographic area; Multi-region provides disaster recovery across different geographic areas.
+26. **Q: What is "Infrastructure as Code" (IaC)?** **A:** Managing and provisioning infrastructure through machine-readable definition files (e.g., Terraform, CloudFormation) instead of manual configuration.
+27. **Q: Explain "S3 Bucket Versioning."** **A:** A feature that keeps multiple variants of an object in the same bucket, allowing recovery from accidental deletes or overwrites.
+28. **Q: What is a "VPC Peering" connection?** **A:** A networking connection between two VPCs that enables routing traffic between them using private IP addresses.
+29. **Q: What is "Cloud Agnostic" architecture?** **A:** Designing systems using tools (like Kubernetes and Terraform) that allow the workload to run on any cloud provider without heavy modification.
+30. **Q: How does Azure API Management (APIM) help in Microservices?** **A:** It acts as a gateway providing rate-limiting, authentication, caching, and analytics for all backend APIs.
+
+---
+
+### **Part 4: DevOps & Orchestration**
+
+31. **Q: What is the difference between a Container and a Virtual Machine?** **A:** Containers share the host OS kernel and are lightweight; VMs include a full guest OS and run on a hypervisor.
+32. **Q: What is the role of a "Sidecar Container" in Kubernetes?** **A:** A container that runs alongside the main application container in a Pod to provide helper functions like logging, monitoring, or proxying (e.g., Istio).
+33. **Q: Explain "Blue-Green Deployment."** **A:** A strategy where two identical environments exist; traffic is switched from the old (Blue) to the new (Green) once testing is successful.
+34. **Q: What is a "Canary Release"?** **A:** Rolling out a new feature to a small subset of users before making it available to everyone to minimize risk.
+35. **Q: What is "CI/CD"?** **A:** Continuous Integration (automated testing/merging) and Continuous Deployment (automated release to production).
+36. **Q: How does "Docker Compose" differ from "Kubernetes"?** **A:** Docker Compose is for managing multi-container apps on a single host; Kubernetes is for orchestrating containers across a cluster of hosts.
+37. **Q: What is "GitOps"?** **A:** A practice where Git is the single source of truth for infrastructure and application code; changes in Git trigger automated syncs to the environment (e.g., ArgoCD).
+38. **Q: What is a "Helm Chart"?** **A:** A package manager for Kubernetes that simplifies the definition, installation, and upgrade of complex applications.
+39. **Q: Explain "Self-healing" in Kubernetes.** **A:** Kubernetes automatically restarts failed containers, replaces pods, and kills pods that don't respond to user-defined health checks.
+40. **Q: What is "Prometheus" used for?** **A:** An open-source monitoring and alerting toolkit designed for reliability and scalability in cloud-native environments.
+
+---
+
+### **Part 5: System Design & Strategy**
+
+41. **Q: What is the CAP Theorem?** **A:** In a distributed system, you can only provide two of three guarantees: Consistency, Availability, and Partition Tolerance.
+42. **Q: Explain "Eventual Consistency."** **A:** A consistency model where data will become consistent across all nodes eventually, given no new updates are made.
+43. **Q: What is the "Circuit Breaker" pattern?** **A:** A design pattern used to detect failures and encapsulate the logic of preventing a failure from cascading across other services.
+44. **Q: What is a "Message Queue" (e.g., Kafka) used for?** **A:** To decouple services, handle spikes in traffic, and ensure asynchronous communication.
+45. **Q: Explain the "Saga Pattern" in Microservices.** **A:** A way to manage distributed transactions by using a sequence of local transactions, each with a compensating transaction for rollbacks.
+46. **Q: What is "Database Sharding"?** **A:** A type of horizontal scaling that splits a large database into smaller, faster, more easily managed parts called shards.
+47. **Q: How do you design for "High Availability"?** **A:** Eliminate single points of failure, use load balancers, deploy across multiple zones, and implement automated failover.
+48. **Q: What is the difference between "Stateful" and "Stateless" services?** **A:** Stateless services do not store client data between requests; Stateful services require the server to remember the client's context.
+49. **Q: What is an "API Gateway"?** **A:** A server that acts as an entry point for all clients, handling routing, composition, and protocol translation.
+50. **Q: How do you handle "Data Gravity" in Cloud migrations?** **A:** By using high-speed dedicated links (DirectConnect/ExpressRoute) or physical transfer devices (Snowball), and prioritizing moving data closest to where the compute happens.
 
 
